@@ -3,13 +3,13 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import About, Client, Service, Testimonial
-from .serializers import AboutSerializer
+from .serializers import AboutSerializer, AboutSerializerList
 
 
 
 class AboutListView(generics.ListAPIView):
     queryset = About.objects.all()  # Adjust the queryset as needed
-    serializer_class = AboutSerializer
+    serializer_class = AboutSerializerList
 
     def get(self, request, *args, **kwargs):
         # Filter only the active CV
